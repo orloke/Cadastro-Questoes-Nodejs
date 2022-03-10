@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/alterar-questao?question=<%=novosDados.question %>" method="post" class="new-question" onsubmit="return Validacao()">
+        
+      <div class="new-question__ask">
+          <label for="question">Q</label> 
+          <input type="text" name="question" id="question-ask" value="<%=novosDados.question %>">
+      </div>
+
+      <div class="new-question__option">
+          <label for="question">a</label> 
+          <input type="text" name="a" id="question-a" value="<%=novosDados.a %>">
+      </div>
+      <div class="new-question__option">
+          <label for="question">b</label> 
+          <input type="text" name="b" id="question-b" value="<%=novosDados.b %>">
+      </div>
+      <div class="new-question__option">
+          <label for="question">c</label> 
+          <input type="text" name="c" id="question-c" value="<%=novosDados.c %>">
+      </div>
+      <div class="new-question__option">
+          <label for="question">d</label> 
+          <input type="text" name="d" id="question-d" value="<%=novosDados.d %>">
+      </div>
+
+      <div class="new-question__option">
+          <label for="question">R</label>
+          <input type="text" name="r" id="question-correct" value="<%=novosDados.r %>">
+      </div>
+
+
+      <input type="submit" id="add-question" value="Alterar"/>
+  </form>
+
+
+  
+  <script type="text/javascript" src="/javascripts/script.js"></script>
+  </body>
+</html>

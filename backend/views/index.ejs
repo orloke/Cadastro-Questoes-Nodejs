@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/cadastrar-questao" method="post" class="new-question" onsubmit="return Validacao()">
+        
+      <div class="new-question__ask">
+          <label for="question">Q</label> 
+          <input type="text" name="question" id="question-ask" placeholder="Digite aqui o enunciado">
+      </div>
+
+      <div class="new-question__option">
+          <label for="question">a</label> 
+          <input type="text" name="a" id="question-a">
+      </div>
+      <div class="new-question__option">
+          <label for="question">b</label> 
+          <input type="text" name="b" id="question-b">
+      </div>
+      <div class="new-question__option">
+          <label for="question">c</label> 
+          <input type="text" name="c" id="question-c">
+      </div>
+      <div class="new-question__option">
+          <label for="question">d</label> 
+          <input type="text" name="d" id="question-d">
+      </div>
+
+      <div class="new-question__option">
+          <label for="question">R</label>
+          <input type="text" name="r" id="question-correct" placeholder="escreva 'a, b, c ou d'">
+      </div>
+
+
+      <input type="submit" id="add-question" value="Adicionar"/>
+  </form>
+
+  <form action="/buscar" method="post" class="buscar">
+
+    <div class="new-question__option_buscar">
+        <label for="question">Enunciado</label> 
+        <input type="text" name="question" id="question-a">
+    </div>
+
+    <input type="submit" id="add-question" value="Buscar"/>
+
+
+</form>
+
+  <table>
+      <tr>
+          <td>Questão</td>
+          <td>A</td>
+          <td>B</td>
+          <td>C</td>
+          <td>D</td>
+          <td>R</td>
+      </tr>
+
+      <% for(i = 0; i<questao.length; i++) {%>
+        <tr>
+            <td><%=questao[i].question %></td>
+            <td><%=questao[i].a %></td>
+            <td><%=questao[i].b %></td>
+            <td><%=questao[i].c %></td>
+            <td><%=questao[i].d %></td>
+            <td><%=questao[i].r %></td>
+            <td><a href="/alterar?question=<%=questao[i].question %>">Alterar</a></td>
+            <td><a href="#" onclick="Excluir('<%=questao[i].question %>')">Excluir</a></td>
+        </tr>
+      <% } %>
+  </table>
+  
+  <script type="text/javascript" src="/javascripts/script.js"></script>
+  </body>
+</html>
