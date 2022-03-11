@@ -18,3 +18,9 @@ var Excluir = function(q){
         window.location.href = '/excluir?question=' + q
     }
 }
+
+var Finish = function(q,p){
+    if(q == 'Questões Concluidas'){
+        alert('Sua pontuação foi: ' + p)
+    }
+}

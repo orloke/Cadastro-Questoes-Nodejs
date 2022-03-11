@@ -5,6 +5,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+      <a href="/responder?i=0" class="responder">Responder</a>
+
       <main class="menu">
         <form action="/cadastrar-questao" method="post" class="new-question" onsubmit="return Validacao()">
         
@@ -47,6 +49,7 @@
           </div>
       
           <input type="submit" id="add-question" value="Buscar"/>
+          <input type="submit" id="add-question" value="Todas as Questões"/>
       
       
       </form>
@@ -58,7 +61,6 @@
                 <td>B</td>
                 <td>C</td>
                 <td>D</td>
-                <td>R</td>
             </tr>
       
             <% for(i = 0; i<questao.length; i++) {%>
@@ -68,7 +70,6 @@
                   <td><%=questao[i].b %></td>
                   <td><%=questao[i].c %></td>
                   <td><%=questao[i].d %></td>
-                  <td><%=questao[i].r %></td>
                   <td><a href="/alterar?question=<%=questao[i].question %>">Alterar</a></td>
                   <td><a href="#" onclick="Excluir('<%=questao[i].question %>')">Excluir</a></td>
               </tr>

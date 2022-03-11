@@ -79,6 +79,39 @@ router.get('/alterar', function(req, res){
   })
 })
 
+router.get('/responder', function(req, res){
+  p = 0
+  fs.readFile(caminho,function(err, data){
+    if(err){
+      console.log('Não foi possível encontrar os dados')
+      return
+    }
+    dados = JSON.parse(data)
+    i = parseInt(req.query.i)
+    res.render('responder', { title: 'Responder', questao:dados[i],l:i, p:p });
+  })
+})
+
+router.post('/responder', function(req, res){
+  fs.readFile(caminho,function(err, data){
+    if(err){
+      console.log('Não foi possível encontrar os dados')
+      return
+    }
+    dados = JSON.parse(data)
+    if(parseInt(req.query.i)<dados.length-1){
+      i = parseInt(req.query.i) + 1
+      if(req.body.alternativa == dados[parseInt(req.query.i)].r){
+         p++
+      }
+      res.render('responder', { title: 'Responder', questao:dados[i], l:i, p:p })
+    }
+    if((req.query.i)==dados.length-1){
+      res.render('fim', { title: 'Fim', p:p })
+    }
+  })
+})
+
 router.post('/alterar-questao', function(req, res, next) {
 
   fs.readFile(caminho, function(err,data){
@@ -88,8 +121,6 @@ router.post('/alterar-questao', function(req, res, next) {
     else{
       dados = JSON.parse(data)
       for(i = 0; i<dados.length;i++){
-        console.log(req.query.question)
-        console.log(dados[i].question)
         if(req.query.question == dados[i].question){
           dados[i].question = req.body.question
           dados[i].a = req.body.a
