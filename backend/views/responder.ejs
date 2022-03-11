@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="main">
+        <div class="main__central">    
+            <form class="form_responder" action="/responder?i=<%=l%>" method="post">
+                <h3 id="questao"><%=questao.question %></h3>
+                <div class="option">
+                    <input class="point" type="radio" name="alternativa"  value="a">
+                    <label id="answer_a" for="a"><%=questao.a %></label>
+                </div>
+               
+                <div class="option">
+                    <input class="point" type="radio" name="alternativa"  value="b">
+                    <label id="answer_b" for="b"><%=questao.b %></label>
+                </div>
+                
+                <div class="option">
+                    <input class="point" type="radio" name="alternativa"  value="c">
+                    <label id="answer_c" for="c"><%=questao.c %></label>
+                </div>
+    
+                <div class="option">
+                    <input class="point" type="radio" name="alternativa"  value="d">
+                    <label id="answer_d" for="d"><%=questao.d %></label>
+                </div>
+
+                <input type="submit" id="add-question" value="Enviar" onclick="Finish('<%=l%>', '<%=p%>')"/>
+    
+            </form>
+        </div>
+
+        <div class="enviar" >
+            <p id="pontuacao">Sua pontuanção: <%=p%></p> 
+        </div>          
+    </div>
+  
+  <script type="text/javascript" src="/javascripts/script.js"></script>
+  </body>
+</html>
