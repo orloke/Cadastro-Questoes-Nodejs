@@ -7,7 +7,7 @@
   <body>
     <div class="main">
         <div class="main__central">    
-            <form class="form_responder" action="/responder?i=<%=l%>" method="post">
+            <form class="form_responder" action="/responder?i=<%=l%>" method="post" onsubmit="return Select()">
                 <h3 id="questao"><%=questao.question %></h3>
                 <div class="option">
                     <input class="point" type="radio" name="alternativa"  value="a">

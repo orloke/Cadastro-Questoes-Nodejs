@@ -24,3 +24,16 @@ var Finish = function(q,p){
         alert('Sua pontuação foi: ' + p)
     }
 }
+
+function Select(){
+    const ans = document.querySelectorAll('.point')
+    t = []
+    ans.forEach(item=>{
+       t.push(item.checked)
+    })
+    if(t.includes(true)==false){
+        alert('Marque uma alternativa')
+        return false        
+    }
+    return true    
+}

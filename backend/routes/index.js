@@ -107,6 +107,9 @@ router.post('/responder', function(req, res){
       res.render('responder', { title: 'Responder', questao:dados[i], l:i, p:p })
     }
     if((req.query.i)==dados.length-1){
+      if(req.body.alternativa == dados[parseInt(req.query.i)].r){
+        p++
+     }
       res.render('fim', { title: 'Fim', p:p })
     }
   })
